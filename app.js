@@ -5,7 +5,7 @@ Aquí deberás desarrollar la lógica para resolver el problema.*/
 //poner el alert cuando esta vacio check
 //quizas verificar q sea un nombre no repetido
 
-//let amigo = document.getElementById('amigo').value
+
 let amigo;
 let nombres = []
 var NumAmigos
@@ -13,25 +13,28 @@ var indice
 var ganador;
 
 function asignarTextoElementos(elemento, texto) {
-    //let elementoHTML = document.querySelector(elemento);
+    
     let elementoHTML = document.getElementById(elemento)
-    //elementoHTML.innerHTML += `<li> ${amigo} </li>`
     elementoHTML.innerHTML += texto;
     return;
 }
 
 function agregarAmigo() {
-    console.log(nombres.length)
+    //console.log(nombres.length)
     let amigo = document.getElementById('amigo').value
-    if( amigo == '' ){
+    if( amigo == ''){
         alert('debe ingresar un nombre');
     }else{
-        
-        nombres.push(amigo)
+        if(nombres.includes(amigo)){
+            alert(`${amigo} ya se encuentra en tu lista`)
+        }else{
+           nombres.push(amigo)
         NumAmigos = nombres.length
         console.log(nombres)
         asignarTextoElementos("listaAmigos",`<li> ${amigo} </li>`);
-        limpiarCaja()
+        limpiarCaja() 
+        }
+        
     }
         
     
