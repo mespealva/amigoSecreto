@@ -2,11 +2,11 @@
 Aquí deberás desarrollar la lógica para resolver el problema.*/
 //llenar la lista al momento de agregar un nombre   check
 //poner el ganador en la pag   check
-//poner el alert cuando esta vacio
+//poner el alert cuando esta vacio check
 //quizas verificar q sea un nombre no repetido
 
-let amigo = document.getElementById('amigo').value
-//let amigo;
+//let amigo = document.getElementById('amigo').value
+let amigo;
 let nombres = []
 var NumAmigos
 var indice
@@ -22,10 +22,11 @@ function asignarTextoElementos(elemento, texto) {
 
 function agregarAmigo() {
     console.log(nombres.length)
-    if( amigo === ''){
+    let amigo = document.getElementById('amigo').value
+    if( amigo == '' ){
         alert('debe ingresar un nombre');
     }else{
-        let amigo = document.getElementById('amigo').value
+        
         nombres.push(amigo)
         NumAmigos = nombres.length
         console.log(nombres)
