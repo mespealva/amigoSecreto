@@ -27,6 +27,7 @@ function agregarAmigo() {
     }else{
         if(nombres.includes(amigo)){
             alert(`${amigo} ya se encuentra en tu lista`)
+            limpiarCaja()
         }else{
            nombres.push(amigo)
         NumAmigos = nombres.length
