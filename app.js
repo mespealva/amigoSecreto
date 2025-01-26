@@ -46,19 +46,25 @@ function limpiarCaja() {
 }
 
 function sortearAmigo() {
-    
-    limpiarCaja()
-    const indice = Math.floor(Math.random()* NumAmigos)
+    document.getElementById('agregar').setAttribute('disabled', true);
 
-    ganador = nombres[indice]
-    console.log(ganador)
-    document.getElementById('listaAmigos').remove()
+    limpiarCaja()
+    if (nombres.length === 0 ){
+        alert('no haz ingresado nombres')
+    }else{
+        let indice = Math.floor(Math.random()* NumAmigos)
+        ganador = nombres[indice]
+        console.log(ganador)
+        lista = document.getElementById('listaAmigos')
+        lista.remove()
+        asignarTextoElementos("resultado",`el ganador es ${ganador}!!`);
+        document.getElementById('botonSorteo').setAttribute('disabled', true);
+
+        
+        //nombres.slice()
+        //console.log(nombres)
+    }
     
-    asignarTextoElementos("resultado",`el ganador es ${ganador}!!`);
     return ganador
 }
-//agregarAmigo()
-//sortearAmigo(ganador) 
 
-
-//console.log(ganador)
