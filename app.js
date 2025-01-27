@@ -83,8 +83,7 @@ function sortearAmigo() {
         //--una vez realizado el sorteo deshabilitar el boton        
         botones('botonSorteo', 'Termino el Sorteo')
         
-        console.log(ganador)
-        console.log(nombres)
+        
         
     }
     return ganador
