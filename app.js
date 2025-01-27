@@ -64,7 +64,7 @@ function sortearAmigo() {
         alert('no haz ingresado nombres')
     }else{
         //--deshabilitar el boton de agregar una vez q inicia el sorteo
-        botones('agregar', 'Ya sorteaste' )
+        botones('agregar', 'Ya Tienes al Ganador' )
         limpiarCaja()
 
         //--elegir ganador
@@ -78,10 +78,10 @@ function sortearAmigo() {
             }
         
         //--mostrar ganador
-        asignarTextoElementos("resultado",`el ganador es ${ganador}!!`);
+        asignarTextoElementos("resultado",`El Ganador es ${ganador.toUpperCase()}!!`);
 
         //--una vez realizado el sorteo deshabilitar el boton        
-        botones('botonSorteo', 'Ya tienes al ganador')
+        botones('botonSorteo', 'Termino el Sorteo')
         
         console.log(ganador)
         console.log(nombres)
@@ -89,7 +89,7 @@ function sortearAmigo() {
     }
     return ganador
 
-    }
+}
     
 
 
