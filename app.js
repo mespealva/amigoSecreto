@@ -19,7 +19,7 @@ function asignarTextoElementos(elemento, texto) {
 function botones(boton, nombre) {
     var elemento = document.getElementById(boton)
     
-    //elemento.setAttribute('disabled', true);
+    elemento.setAttribute('disabled', true);
     elemento.innerText = nombre
     
     return
@@ -72,15 +72,18 @@ function sortearAmigo() {
         ganador = nombres[indice]
         
         //--limpiar la lista en la pantalla
-        lista = document.querySelector('ul')
-        lista.remove()
+        for(i=1; i<=nombres.length; i++){
+            lista = document.querySelector('li')
+            lista.remove()
+        }
+        
         
         //--mostrar ganador
         //document.getElementById('resultado').innerHTML += `el ganador es ${ganador}!!`;
         asignarTextoElementos("resultado",`el ganador es ${ganador}!!`);
         //--una vez realizado el sorteo deshabilitar el boton
         
-        botones('botonSorteo', 'listo el sorteo')
+        botones('botonSorteo', 'Ya tienes al ganador')
         //document.getElementById('botonSorteo').setAttribute('disabled', true);
         //document.getElementById('botonSorteo').innerText = "Ya realisaste el sorteo"
         
