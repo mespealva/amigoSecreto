@@ -14,33 +14,36 @@ function asignarTextoElementos(elemento, texto) {
     elementoHTML.innerHTML += texto;
     return;
 }
+    
 
 function botones(boton, nombre) {
-    let elemento = document.getElementById(boton)
+    var elemento = document.getElementById(boton)
     
-    //document.getElementById('botonSorteo').setAttribute('disabled', true);
-    //let palabra = document.getElementById(nombre)
+    //elemento.setAttribute('disabled', true);
     elemento.innerText = nombre
-    elemento.setAttribute('disable', true)
+    
+    return
 }
+
 
 function agregarAmigo() {
     
     let amigo = document.getElementById('amigo').value
 
     if( amigo == ''){
-        //no permitir valores vacios
+        //--no permitir valores vacios
         alert('debe ingresar un nombre');
     }else{
         if(nombres.includes(amigo)){
-            //alertar valores repetidos
+            //--alertar valores repetidos
             alert(`${amigo} ya se encuentra en tu lista`)
             limpiarCaja()
         }else{
-            //agregar nombres a la lista
+            //--agregar nombres a la lista
             nombres.push(amigo)
             NumAmigos = nombres.length
-            //mostrar nombres
+            //--mostrar nombres
+            //document.getElementById('listaAmigos').innerHTML += `<li> ${amigo} </li>`;
             asignarTextoElementos("listaAmigos",`<li> ${amigo} </li>`);
             limpiarCaja() 
         }
@@ -55,33 +58,34 @@ function limpiarCaja() {
 }
 
 function sortearAmigo() {
-    //deshabilitar el boton de agregar una vez q inicia el sorteo
+    //--deshabilitar el boton de agregar una vez q inicia el sorteo
     //document.getElementById('agregar').setAttribute('disabled', true);
-    //botones('agregar', 'Ya sorteaste' )
+    botones('agregar', 'Ya sorteaste' )
     limpiarCaja()
 
     if (nombres.length === 0 ){
-        //alertar si no hay nombres en la lista
+        //--alertar si no hay nombres en la lista
         alert('no haz ingresado nombres')
     }else{
-        //elegir ganador
+        //--elegir ganador
         let indice = Math.floor(Math.random()* NumAmigos)
         ganador = nombres[indice]
         
-        //limpiar la lista en la pantalla
-        lista = document.querySelector('li')
+        //--limpiar la lista en la pantalla
+        lista = document.querySelector('ul')
         lista.remove()
         
-        //mostrar ganador
+        //--mostrar ganador
+        //document.getElementById('resultado').innerHTML += `el ganador es ${ganador}!!`;
         asignarTextoElementos("resultado",`el ganador es ${ganador}!!`);
-        //una vez realizado el sorteo deshabilitar el boton
+        //--una vez realizado el sorteo deshabilitar el boton
         
         botones('botonSorteo', 'listo el sorteo')
         //document.getElementById('botonSorteo').setAttribute('disabled', true);
         //document.getElementById('botonSorteo').innerText = "Ya realisaste el sorteo"
         
-        //console.log(ganador)
-        //console.log(nombres)
+        console.log(ganador)
+        console.log(nombres)
     }
     
     return ganador
